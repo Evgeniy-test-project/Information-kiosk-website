@@ -1,7 +1,7 @@
 
 
 
-
+//возврат на главную страницу при бездействии
 (function () {
     'use strict';
 
@@ -62,7 +62,7 @@
     resetIdleTimer();
 })();
 
-
+/*
 import Keyboard from 'simple-keyboard';
 import 'simple-keyboard/build/css/index.css';
 
@@ -78,4 +78,4 @@ function onChange(input){
 
 function onKeyPress(button){
     console.log("Button pressed", button);
-}
+}*/

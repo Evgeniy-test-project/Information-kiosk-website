@@ -21,10 +21,10 @@
         <a href="{{ route('kiosk.index') }}"
            class="bg-blue-500 text-white px-4 py-3 rounded-lg hover:bg-blue-600 text-[25px]">На главную</a>
     </div>
-    {{--заголовок раздела--}}
-    <div class="flex items-center">
-        <h1 class="text-3xl font-bold ml-4">{{ $pageTitle ?? 'Информация для посетителей' }}</h1>
-    </div>
+    {{--заголовок документа--}}
+   {{-- <div class="flex items-center">
+                <h1 class="text-3xl font-bold ml-4">{{ $pageTitle ?? 'Информация для посетителей' }}</h1>
+    </div>--}}
 
     <div class="text-gray-600 text-xl">
         <span id="currentTime" class="mr-4"></span>
@@ -32,21 +32,10 @@
     </div>
 
 </header>
-@if(!empty($file))
-    {{--показываем документ--}}
-    <div class="flex-1">
-        @yield('content')
-    </div>
-@else
-    {{--показываем блок кнопок--}}
-    <div class="flex-1 p-8">
-        <main class="py-15">
-            <div class="max-w-7xl mx-auto">
-                @yield('content')
-            </div>
-        </main>
-    </div>
-@endif
+{{--показываем документ--}}
+<div class="flex-1">
+    @yield('content')
+</div>
 
 <!-- Закрепленный футер -->
 <footer class="bg-gray-200 p-4 text-center">

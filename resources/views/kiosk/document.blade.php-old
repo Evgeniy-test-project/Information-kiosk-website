@@ -25,8 +25,7 @@
             @if($page > 1)
                 <a
                     href="{{ route('kiosk.document.page', ['document' => $document, 'page' => $page - 1]) }}"
-                    class="inline-flex items-center px-4 py-2 border border-blue-500 text-blue-600 bg-white hover:bg-blue-50 hover:text-blue-700 rounded-md text-sm font-medium transition-colors duration-200"
-                >
+                    class="inline-flex items-center px-4 py-2 border border-blue-500 text-blue-600 bg-white hover:bg-blue-50 hover:text-blue-700 rounded-md text-sm font-medium transition-colors duration-200">
                     ← Назад
                 </a>
             @else
@@ -42,7 +41,7 @@
         </span>
 
             {{-- Кнопка «Вперёд» --}}
-            @if($page < $document->page_count)
+{{--            @if($page < $document->page_count)
                 <a
                     href="{{ route('kiosk.document.page', ['document' => $document, 'page' => $page + 1]) }}"
                     class="kiosk-btn kiosk-btn--nav inline-flex items-center px-4 py-2 border border-blue-500 text-blue-600 bg-white hover:bg-blue-50 hover:text-blue-700 rounded-md text-sm font-medium transition-colors duration-200"
@@ -54,7 +53,7 @@
                     class="kiosk-btn kiosk-btn--nav kiosk-btn--disabled inline-flex items-center px-4 py-2 text-gray-400 bg-gray-100 border border-transparent rounded-md text-sm font-medium cursor-not-allowed">
                 Вперёд →
             </span>
-            @endif
+            @endif--}}
         </div>
     </div>
 

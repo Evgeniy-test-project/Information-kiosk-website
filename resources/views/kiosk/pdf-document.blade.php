@@ -1,15 +1,22 @@
-@extends('kiosk.pdf-layout')
-
-@section('title', $document->title)
+@extends('kiosk.layout')
 
 @php
-    $pageTitle = $document->title;
-    $showBack = true;
+//    $showBack = true;
 @endphp
 
 @section('content')
 
     <!-- Здесь будет содержимое PDF файла -->
-    <embed width="100%" height="100%" name="plugin" src="{{$file}}" type="application/pdf">
+    <iframe
+        src="{{ $file }}"
+        width="100%"
+        height="100%"
+        style="border: none;"
+        title="PDF Document"
+    >
+        Ваш браузер не поддерживает отображение PDF. <a href="{{ $file }}">Скачать файл</a>.
+    </iframe>
+
+
 
 @endsection

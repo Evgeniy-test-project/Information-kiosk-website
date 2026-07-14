@@ -9,30 +9,25 @@
 
 @section('content')
     <div class="p-5">
+        <!-- Контейнер для кнопок разделов -->
         @if($children->isNotEmpty())
-            <!-- Контейнер для кнопок -->
-            <div class=" ">
-                <div class="max-w-7xl mx-auto">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                        @foreach($children as $child)
-                            <a href="{{ route('kiosk.category', $child) }}"
-                               class="bg-blue-500 text-white px-4 py-6 rounded-lg hover:bg-blue-600 text-[25px]"
-                               :class="index % 2 === 0 ? 'col-start-1' : 'col-start-2'">
-                                {{ $child->title }}
-                            </a>
-                        @endforeach
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
+                    @foreach($children as $child)
+                        <a href="{{ route('kiosk.category', $child) }}"
+                           class="bg-blue-500 text-white px-4 py-6 rounded-lg hover:bg-blue-600 text-[25px]"
+                           :class="index % 2 === 0 ? 'col-start-1' : 'col-start-2'">
+                            {{ $child->title }}
+                        </a>
+                    @endforeach
                 </div>
-            </div>
-
         @endif
 
+        <!-- Контейнер для кнопок документов -->
         @if($documents->isNotEmpty())
-            <div class="kiosk-buttons grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
                 @foreach($documents as $document)
                     <a href="{{ route('kiosk.document', $document) }}"
-                       class="bg-blue-500 text-white px-4 py-6 rounded-lg hover:bg-blue-600 text-[25px]"
+                       class="bg-yellow-600 text-white px-4 py-6 rounded-lg hover:bg-blue-600 text-[25px]"
                        :class="index % 2 === 0 ? 'col-start-1' : 'col-start-2'">
                         {{ $document->title }}
                     </a>

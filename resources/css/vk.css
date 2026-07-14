@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    color: #1c2333;
+    background: #f5f7fb;
+    margin: 0;
+    font-family: Segoe UI,Tahoma,sans-serif
+}
+
+#app {
+    justify-content: center;
+    align-items: center;
+
+    padding: 24px;
+    display: flex
+}
+
+.container {
+    background: #fff;
+    border: 1px solid #dde4f0;
+    border-radius: 16px;
+    width: min(1040px,100%);
+    padding: 24px;
+    box-shadow: 0 10px 28px #1d355714
+}
+
+h1 {
+    margin: 0 0 8px;
+    font-size: 28px
+}
+
+.hint {
+    color: #53627d;
+    margin: 0 0 16px
+}
+
+#output {
+    resize: vertical;
+    border: 1px solid #cdd7e7;
+    border-radius: 10px;
+    outline: none;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    line-height: 1.45
+}
+
+#output:focus {
+    border-color: #4a6cf7;
+    box-shadow: 0 0 0 3px #4a6cf729
+}
+
+.actions {
+    margin-top: 12px
+}
+
+.send-email-btn {
+    color: #fff;
+    cursor: pointer;
+    background: #4a6cf7;
+    border: 1px solid #3f63e8;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background .15s,transform 50ms
+}
+
+.send-email-btn:hover {
+    background: #3f63e8
+}
+
+.send-email-btn:active {
+    transform: translateY(1px)
+}
+
+.status {
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 12px 0 14px;
+    display: flex
+}
+
+.status span {
+    color: #2643b8;
+    background: #eef3ff;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 14px
+}
+
+.keyboard {
+    flex-direction: column;
+    gap: 8px;
+    display: flex
+}
+
+.row {
+    gap: 8px;
+    display: flex
+}
+
+.key {
+    cursor: pointer;
+    color: #24344f;
+    background: #f4f7ff;
+    border: 1px solid #c9d5e8;
+    border-radius: 10px;
+    min-width: 52px;
+    height: 46px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform 50ms,background .15s
+}
+
+.key:hover {
+    background: #e9f0ff
+}
+
+.key:active {
+    transform: translateY(1px)
+}
+
+.key.active {
+    background: #dbe7ff;
+    border-color: #84a2ff
+}
+
+.key-sm {
+    min-width: 70px
+}
+
+.key-md {
+    min-width: 56px
+}
+.key-mmd {
+    min-width: 86px
+}
+
+.key-lg {
+    min-width: 118px
+}
+
+.key-xl {
+    min-width: 148px
+
+}
+.key-xxl {
+    min-width: 632px
+}
+
+@media (width<=1030px) {
+    .container {
+        padding: 16px
+    }
+
+    .key {
+        min-width: 52px;
+        height: 42px;
+        font-size: 14px
+    }
+
+    .key-sm {
+        min-width: 52px
+    }
+
+    .key-md {
+        min-width: 50px
+    }
+
+    .key-lg {
+        min-width: 88px
+    }
+
+    .key-xl {
+        min-width: 102px
+    }
+}
+
+

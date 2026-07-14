@@ -76,26 +76,59 @@
         document.getElementById('virtual-keyboard').style.display = 'block';
     }
 
+    /**
+     * Функция скрытия виртуальной клавиатуры.
+     * Очищает ссылку на активное поле и скрывает элемент клавиатуры.
+     */
     function hideKeyboard() {
         activeInput = null;
         document.getElementById('virtual-keyboard').style.display = 'none';
     }
 
+    // Показываем клавиатуру при фокусе на поле ввода
     document.querySelectorAll('.kiosk-input').forEach(function (input) {
         input.addEventListener('focus', function () {
             var mode = input.id === 'phone' ? 'numeric' : 'default';
             showKeyboard(input, mode);
         });
-
-        input.addEventListener('blur', function () {
-            setTimeout(function () {
-                if (document.activeElement && document.activeElement.classList.contains('kiosk-input')) {
-                    return;
-                }
-                hideKeyboard();
-            }, 200);
-        });
+        // Убираем обработчик blur — теперь не скрываем по потере фокуса
     });
+
+    // Скрываем клавиатуру по клику вне её и вне полей ввода
+    document.addEventListener('click', function (e) {
+        var target = e.target;
+        var isInput = target.closest('.kiosk-input');
+        var isKeyboard = keyboardElement && keyboardElement.contains(target);
+
+        if (!isInput && !isKeyboard && activeInput) {
+            hideKeyboard();
+        }
+    }, true); // useCapture=true, чтобы ловить клики до того, как они «всплывут»
 
     hideKeyboard();
 })();
+
+/*// Находим все поля ввода с классом 'kiosk-input' и навешиваем на них обработчики событий.
+    document.querySelectorAll('.kiosk-input').forEach(function (input) {
+        // При получении фокуса полем ввода показываем клавиатуру.
+        input.addEventListener('focus', function () {
+            // Определяем режим клавиатуры: если ID поля 'phone', то цифровая, иначе — обычная.
+            var mode = input.id === 'phone' ? 'numeric' : 'default';
+            showKeyboard(input, mode);
+        });
+
+// При потере фокуса (blur) скрываем клавиатуру с небольшой задержкой.
+        input.addEventListener('blur', function () {
+            setTimeout(function () {
+                // Проверяем, не переключился ли фокус на другое поле с тем же классом.
+                // Если да, то не скрываем клавиатуру.
+                if (document.activeElement && document.activeElement.classList.contains('kiosk-input')) {
+                    return;
+                }
+                 hideKeyboard();
+            }, 200); // Задержка 200 мс нужна, чтобы корректно обработать переключение фокуса между полями.
+        });
+    });
+// Изначально скрываем клавиатуру при загрузке скрипта.
+    hideKeyboard();
+})();*/
