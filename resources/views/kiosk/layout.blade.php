@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/current-datetime.js'])
-    <title>@yield('title', 'Инфомат')</title>
+    @vite(['resources/css/app.css'])
     @stack('styles')
+    <title>@yield('title', 'Инфомат')</title>
+
 </head>
 
 <body class="h-screen flex flex-col bg-gray-100">
@@ -56,7 +57,7 @@
 <script>
     window.KIOSK_IDLE_TIMEOUT = {{ (int) config('infomat.idle_timeout_seconds', 120) }};
 </script>
-
+@vite(['resources/js/app.js', 'resources/js/current-datetime.js'])
 @stack('scripts')
 </body>
 </html>

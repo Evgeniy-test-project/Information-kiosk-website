@@ -8,9 +8,8 @@
     $backUrl = route('kiosk.index');
 @endphp
 
-@vite(['resources/css/vk.css', 'resources/js/vk-alisa.js'])
 @push('styles')
-
+    @vite(['resources/css/vk.css', 'resources/js/vk-alisa.js'])
 @endpush
 
 @section('content')
@@ -48,19 +47,13 @@
         </button>
     </form>
 
-{{--    <div class="actions">
-        <div class="actions">
-            <button id="sendEmail" type="button" class="send-email-btn">Отправить на email</button>
-        </div>
-    <div>--}}
-        <div id="app"></div>
+    <div id="app"></div>
 
-    </div>
+
 
 @endsection
 
 @push('scripts')
-
-
+    @vite(['resources/js/vk-alisa.js'])
 @endpush
 

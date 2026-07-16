@@ -77,14 +77,10 @@ class KioskController extends Controller
     public function submitFeedback(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'name' => 'nullable|string|max:255',
-            'phone' => 'nullable|string|max:50',
             'message' => 'required|string|max:5000',
         ]);
 
         $feedback = FeedbackMessage::create([
-            'name' => $validated['name'] ?? null,
-            'phone' => $validated['phone'] ?? null,
             'message' => $validated['message'],
             'email_sent' => false,
             'is_read' => false,

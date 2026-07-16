@@ -1,22 +1,25 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>browser-virtual-keyboard</title>
-    @vite(['resources/css/index-CAjIO0Pv.css', 'resources/js/index-B-E02_OA.js'])
-</head>
-<body>
-<p class="hint">Переключение языка: кнопка RU/EN или Alt+Shift</p>
-<textarea id="output" rows="6" placeholder="Печатайте с экранной клавиатуры..."></textarea>
-<div class="actions">
-    <div class="actions">
-        <button id="sendEmail" type="button" class="send-email-btn">Отправить на email</button>
-    </div>
+<?php
+# app/routes/console.php
+# php artisan send-mail
+/*
+use Illuminate\Support\Facades\Artisan;
+use Mailtrap\Helper\ResponseHelper;
+use Mailtrap\MailtrapClient;
+use Mailtrap\Mime\MailtrapEmail;
+use Symfony\Component\Mime\Address;
 
-    <div id="app"></div>
-</div>
+Artisan::command('send-mail', function () {
+    $email = (new MailtrapEmail())
+        ->from(new Address('hello@demomailtrap.co', 'Mailtrap Test'))
+        ->to(new Address('stilmaster0@gmail.com'))
+        ->subject('You are awesome!')
+        ->category('Integration Test')
+        ->text('Congrats for sending test email with Mailtrap!')
+    ;
 
-</body>
-</html>
+    $response = MailtrapClient::initSendingEmails(
+        apiKey: '1d161311b73b51f7b5dd7a1062728603'
+    )->send($email);
+
+    var_dump(ResponseHelper::toArray($response));
+})->purpose('Send Mail');*/
