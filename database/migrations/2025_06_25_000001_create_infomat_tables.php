@@ -23,14 +23,14 @@ class CreateInfomatTables extends Migration
             $table->string('title');
             $table->unsignedInteger('sort_order')->default(0);
             $table->boolean('is_active')->default(true);
-            $table->string('pdf_path')->nullable();
-            $table->unsignedInteger('page_count')->default(0);
-            $table->string('conversion_status')->default('pending');
-            $table->text('conversion_error')->nullable();
+            //   $table->string('pdf_path')->nullable();
+            //   $table->unsignedInteger('page_count')->default(0);
+            //   $table->string('conversion_status')->default('pending');
+            //   $table->text('conversion_error')->nullable();
             $table->timestamps();
         });
 
-        Schema::create('document_pages', function (Blueprint $table) {
+/*        Schema::create('document_pages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('document_id')->constrained()->cascadeOnDelete();
             $table->unsignedInteger('page_number');
@@ -38,7 +38,7 @@ class CreateInfomatTables extends Migration
             $table->timestamps();
 
             $table->unique(['document_id', 'page_number']);
-        });
+        });*/
 
         Schema::create('feedback_messages', function (Blueprint $table) {
             $table->id();
