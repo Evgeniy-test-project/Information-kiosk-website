@@ -50,7 +50,6 @@ class DocumentListLayout extends Table
                                 ->method('remove', ['id' => $document->id]),
                         ])),
 
-
         ];
     }
 }

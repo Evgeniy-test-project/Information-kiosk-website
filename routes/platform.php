@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+
 use App\Orchid\Screens\Category\CategoryEditScreen;
 use App\Orchid\Screens\Category\CategoryListScreen;
 use App\Orchid\Screens\Document\DocumentEditScreen;
@@ -18,6 +19,10 @@ use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
+use App\Orchid\Screens\Setting\KioskSettingsCreateScreen;
+use App\Orchid\Screens\Setting\KioskSettingsEditScreen;
+use App\Orchid\Screens\Setting\KioskSettingsListScreen;
+use App\Orchid\Screens\Setting\SettingCreateScreen;
 use App\Orchid\Screens\Setting\SettingEditScreen;
 use App\Orchid\Screens\Setting\SettingListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
@@ -129,8 +134,12 @@ Route::screen('kiosk/documents/{document}/edit', DocumentEditScreen::class)
 Route::screen('kiosk/documents', DocumentListScreen::class)
     ->name('platform.kiosk.documents');
 
-Route::screen('kiosk/setting', SettingListScreen::class)
-    ->name('platform.setting');
+//kioskSettings
+Route::screen('KioskSettings', KioskSettingsListScreen::class)
+->name('platform.KioskSetting.list');
 
-Route::screen('kiosk/setting/{post?}', SettingEditScreen::class)
-    ->name('platform.setting.edit');
+Route::screen('KioskSettings/{KioskSetting}/edit', KioskSettingsEditScreen::class)
+    ->name('platform.KioskSettings.edit');
+
+Route::screen('KioskSettings/create', KioskSettingsCreateScreen::class)
+    ->name('platform.KioskSetting.create');

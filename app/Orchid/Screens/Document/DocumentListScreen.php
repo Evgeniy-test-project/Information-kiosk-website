@@ -49,14 +49,4 @@ class DocumentListScreen extends Screen
             DocumentListLayout::class,
         ];
     }
-
-    public function remove(Request $request, PdfConverterService $converter): void
-    {
-        $document = Document::findOrFail($request->get('id'));
-        $document->pages()->delete();
-        $document->deleteFiles();
-        $document->delete();
-
-        Toast::info('Документ удалён.');
-    }
 }
