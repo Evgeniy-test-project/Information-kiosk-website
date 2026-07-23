@@ -6,6 +6,7 @@ use App\Mail\FeedbackSubmitted;
 use App\Models\Category;
 use App\Models\Document;
 use App\Models\FeedbackMessage;
+use App\Models\KioskSetting;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -144,9 +145,18 @@ class KioskController extends Controller
 
             // Возвращаем представление страницы категории.
             // Передаем null вместо категории).
+
+            //получаем заголовок из конфигурации
+            $setting = KioskSetting::where('key', 'Заголовок')->first();
+            if ($setting) {
+                $setValue = $setting->value;
+            } else {
+                $setValue = 'Информация для посетителей';
+            }
+
             return view('kiosk.category', [
                 'category' => null,
-                'title' => 'Информация для посетителей',
+                'title' => $setValue,
                 'children' => $children,    // список корневых подкатегорий
                 'documents' => $documents,  // пустой список документов
                 'backUrl' => null,   // кнопки «Назад» нет, так как это начальный экран

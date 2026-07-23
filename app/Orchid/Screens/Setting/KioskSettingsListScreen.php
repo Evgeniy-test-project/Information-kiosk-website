@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
@@ -19,27 +20,29 @@ class KioskSettingsListScreen extends Screen
     {
         return [
             'KioskSetting' => KioskSetting::all(),
+
         ];
     }
 
 
     public function name(): ?string
     {
-        return 'KioskSettingsListScreen';
+        return 'Конфигурация';
     }
 
 
     public function commandBar(): iterable
     {
         return [
-            Link::make('Добавить')
+/*            Link::make('Добавить')
                 ->icon('plus')
-                ->route('platform.KioskSetting.create'),
+                ->route('platform.KioskSetting.create'),*/
         ];
     }
 
     public function layout(): iterable
     {
+        $xx = KioskSetting::find(1)->key;
         return [
             Layout::table('KioskSetting', [
                 TD::make('key', 'параметр'),
@@ -58,15 +61,19 @@ class KioskSettingsListScreen extends Screen
                                     ->icon('bs.pencil'),
 
                                 // Встроенная кнопка удаления Orchid
-                                Button::make('Удалить')
+                       /*         Button::make('Удалить')
                                     ->method('remove')
                                     ->canSee(true)
                                     ->icon('trash')
                                     ->confirm('Вы действительно хотите удалить эту запись?')
-                                    ->parameters(['id' => $KioskSetting->id]),
+                                    ->parameters(['id' => $KioskSetting->id]),*/
                             ]);
                     }),
-            ])];
+            ]),
+
+        ];
+
+
     }
 
     public function remove(Request $request)

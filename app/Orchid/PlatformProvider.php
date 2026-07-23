@@ -43,9 +43,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('bs.book')
                 ->route('platform.kiosk.documents'),
 
-            Menu::make('KioskSettings')
+            Menu::make('Конфигурация')
                 ->icon('bs.book')
                 ->route('platform.KioskSetting.list'),
+
             //--------------------------------
 //            Menu::make('Get Started')
 //                ->icon('bs.book')

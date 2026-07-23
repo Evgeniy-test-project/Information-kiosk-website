@@ -48,9 +48,14 @@
     </div>
 @endif
 
-<!-- Закрепленный футер -->
+{{--Закрепленный футер --}}
+{{--берем данные из конфигурации--}}
+@php
+    $setting = \App\Models\KioskSetting::where('key', 'Футер')->first();
+    $setValue = $setting ? $setting->value : '';
+@endphp
 <footer class="bg-gray-200 p-4 text-center">
-    <p class="text-gray-600">© ГАУЗ СО Детская городская поликлиника № 13, г. Екатеринбург.</p>
+    <p class="text-gray-600">{{$setValue}}</p>
 </footer>
 
 <script>

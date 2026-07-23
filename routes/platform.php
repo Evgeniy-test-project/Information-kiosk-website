@@ -22,6 +22,7 @@ use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\Setting\KioskSettingsCreateScreen;
 use App\Orchid\Screens\Setting\KioskSettingsEditScreen;
 use App\Orchid\Screens\Setting\KioskSettingsListScreen;
+use App\Orchid\Screens\Setting\KioskSettingsScreen;
 use App\Orchid\Screens\Setting\SettingCreateScreen;
 use App\Orchid\Screens\Setting\SettingEditScreen;
 use App\Orchid\Screens\Setting\SettingListScreen;
@@ -143,3 +144,4 @@ Route::screen('KioskSettings/{KioskSetting}/edit', KioskSettingsEditScreen::clas
 
 Route::screen('KioskSettings/create', KioskSettingsCreateScreen::class)
     ->name('platform.KioskSetting.create');
+
