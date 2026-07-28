@@ -7,6 +7,7 @@
 @section('content')
 
     <!-- Здесь будет содержимое PDF файла -->
+
     <iframe
         src="{{ $file }}"
         width="100%"

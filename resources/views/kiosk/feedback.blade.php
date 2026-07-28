@@ -8,7 +8,7 @@
     $backUrl = route('kiosk.index');
 @endphp
 
-@vite(['resources/css/vk.css', 'resources/js/vk-alisa.js'])
+{{--@vite(['resources/css/vk.css'])--}}
 @push('styles')
 
 @endpush
@@ -35,7 +35,7 @@
             >{{ old('message') }}</textarea>
 
             @error('message')
-            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+{{--            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>--}}
             @enderror
         </div>
 
@@ -47,20 +47,12 @@
             Отправить
         </button>
     </form>
-
-{{--    <div class="actions">
-        <div class="actions">
-            <button id="sendEmail" type="button" class="send-email-btn">Отправить на email</button>
-        </div>
-    <div>--}}
+    //виртуальная клавиатура
         <div id="app"></div>
 
-    </div>
-
 @endsection
-
+{{--@vite(['resources/js/vk-alisa.js'])--}}
 @push('scripts')
-
 
 @endpush
 
