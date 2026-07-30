@@ -41,8 +41,8 @@
     </div>
 @else
     {{--показываем блок кнопок--}}
-    <div class="flex-1 p-8">
-        <main class="py-15">
+    <div class="flex-1 pt-8">
+        <main class="pt-15">
             <div class="max-w-7xl mx-auto">
                 @yield('content')
             </div>

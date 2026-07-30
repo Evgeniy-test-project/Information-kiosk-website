@@ -16,16 +16,18 @@ use App\Orchid\Screens\Examples\ExampleGridScreen;
 use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
+use App\Orchid\Screens\feedback\FeedbackListScreen;
+use App\Orchid\Screens\feedback\FeedbackViewScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\Setting\KioskSettingsCreateScreen;
 use App\Orchid\Screens\Setting\KioskSettingsEditScreen;
 use App\Orchid\Screens\Setting\KioskSettingsListScreen;
-use App\Orchid\Screens\Setting\KioskSettingsScreen;
-use App\Orchid\Screens\Setting\SettingCreateScreen;
-use App\Orchid\Screens\Setting\SettingEditScreen;
-use App\Orchid\Screens\Setting\SettingListScreen;
+//use App\Orchid\Screens\Setting\KioskSettingsScreen;
+//use App\Orchid\Screens\Setting\SettingCreateScreen;
+//use App\Orchid\Screens\Setting\SettingEditScreen;
+//use App\Orchid\Screens\Setting\SettingListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
@@ -145,3 +147,9 @@ Route::screen('KioskSettings/{KioskSetting}/edit', KioskSettingsEditScreen::clas
 Route::screen('KioskSettings/create', KioskSettingsCreateScreen::class)
     ->name('platform.KioskSetting.create');
 
+//Feedback
+Route::screen('Feedback', FeedbackListScreen::class)
+    ->name('platform.Feedback.list');
+
+Route::screen('Feedback/{FeedbackMessage}/view', FeedbackViewScreen::class)
+    ->name('platform.Feedback.view');

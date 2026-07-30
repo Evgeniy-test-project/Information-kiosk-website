@@ -71,9 +71,6 @@ class KioskController extends Controller
 
     /**
      * Обрабатывает и сохраняет отправленную обратную связь, а затем отправляет уведомление по электронной почте.
-     *
-     * @param Request $request
-     * @return RedirectResponse
      */
     public function submitFeedback(Request $request): RedirectResponse
     {
@@ -91,7 +88,12 @@ class KioskController extends Controller
             'is_read' => false,
         ]);
 
-        $recipient = config('kiosk.feedback_mail_to');
+        //берем адрес из kiosk.php
+        //$recipient = config('kiosk.feedback_mail_to');
+
+        //берем адрес из базы
+        $setEmail =  KioskSetting::where('key', 'Отправлять Email на адрес')->first();
+        $recipient = $setEmail->value;
 
         if ($recipient) {
             try {
@@ -109,8 +111,6 @@ class KioskController extends Controller
 
     /**
      * Отображает страницу благодарности за отправленную обратную связь.
-     *
-     * @return View|RedirectResponse
      */
     public function feedbackThanks(): View|RedirectResponse
         //   public function feedbackThanks()
@@ -124,9 +124,6 @@ class KioskController extends Controller
 
     /**
      * Возвращает представление для отображения категории или всех категорий, если категория не указана.
-     *
-     * @param Category|null $category
-     * @return View
      */
     protected function categoryView(?Category $category): View
     {

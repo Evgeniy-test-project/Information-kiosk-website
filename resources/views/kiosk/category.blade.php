@@ -15,7 +15,7 @@
                     @foreach($children as $child)
                         <a href="{{ route('kiosk.category', $child) }}"
                            class="bg-blue-500 text-white px-4 py-6 rounded-lg hover:bg-blue-600 text-[25px]"
-                           :class="index % 2 === 0 ? 'col-start-1' : 'col-start-2'">
+                           class="index % 2 === 0 ? 'col-start-1' : 'col-start-2'">
                             {{ $child->title }}
                         </a>
                     @endforeach
@@ -27,8 +27,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
                 @foreach($documents as $document)
                     <a href="{{ route('kiosk.document', $document) }}"
-                       class="bg-yellow-600 text-white px-4 py-6 rounded-lg hover:bg-blue-600 text-[25px]"
-                       :class="index % 2 === 0 ? 'col-start-1' : 'col-start-2'">
+                       class="bg-blue-500 text-white px-4 py-6 rounded-lg hover:bg-blue-600 text-[25px]"
+                       class="index % 2 === 0 ? 'col-start-1' : 'col-start-2'">
                         {{ $document->title }}
                     </a>
                 @endforeach
@@ -42,8 +42,8 @@
 
     <div class="bg-white p-5 rounded shadow">
         <h2 class="text-2xl font-bold mb-4">Добро пожаловать в нашу клинику!</h2>
-        <p class="text-gray-600">Здесь вы можете получить всю необходимую информацию о работе медицинского
+        <p class="text-gray-600">Здесь вы можете получить всю необходимую информацию а также отправить ваше мнение о работе медицинского
             учреждения.</p>
-        <a href="{{ route('kiosk.feedback') }}" class="kiosk-btn kiosk-btn--secondary">Обратная связь</a>
+        <a class="text-2xl kiosk-btn kiosk-btn--secondary" href="{{ route('kiosk.feedback') }}" >Обратная связь</a>
     </div>
 @endsection

@@ -40,12 +40,16 @@ class PlatformProvider extends OrchidServiceProvider
                 ->title('Инфомат'),
 
             Menu::make('Документы')
-                ->icon('bs.book')
+                ->icon('bs.file-pdf')
                 ->route('platform.kiosk.documents'),
 
             Menu::make('Конфигурация')
-                ->icon('bs.book')
+                ->icon('bs.gear')
                 ->route('platform.KioskSetting.list'),
+
+            Menu::make('Обратная связь')
+                ->icon('bs.chat-left-text')
+                ->route('platform.Feedback.list'),
 
             //--------------------------------
 //            Menu::make('Get Started')

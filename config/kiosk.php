@@ -1,4 +1,4 @@
 <?php
 return [
-    'feedback_mail_to' => 'eboyarsky@dp13.ru',
+    'feedback_mail_to' => 'test@dp13.ru',
 ];
